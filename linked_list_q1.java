@@ -84,6 +84,32 @@ void removeLast() {
 	
 
 }
+void reverse() {
+	if(head==null||head.next==null) {
+		return;
+	}
+	node previous=head;
+	node current=head.next;
+	while(current!=null) {
+		node next=current.next;
+		current.next=previous;
+		//update;
+		previous=current;
+		current=next;
+	}
+	head.next=null;
+	head=previous;
+	
+}
+node rev(node head) {
+	if(head==null|head.next==null) {
+		return head;
+	}
+	node nue=rev(head.next);
+	head.next.next=head;
+	head.next=null;
+	return nue;
+}
 	class node{
 		int rn;
 		int mark;
@@ -130,7 +156,10 @@ a.removeFirst();
 a.removeLast();
 a.display();
 a.getsize();
-a.get(2);
+//a.get(2);
+a.head=a.rev(a.head);
+a.display();
+a.getsize();
 	}
 
 }
