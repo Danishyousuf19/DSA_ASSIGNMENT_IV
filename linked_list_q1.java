@@ -101,6 +101,26 @@ void reverse() {
 	head=previous;
 	
 }
+void  delete(int i) {
+	if(size==0) {
+	
+		return ;
+	}if(i==0) {
+//		removeFirst();return;
+		head=head.next;return;
+	}
+
+	size--;
+	
+	node prev=head;
+	int j=1;
+	while(j<i) {
+		prev=prev.next;
+		j++;
+	}
+	prev.next=prev.next.next;
+	
+}
 node rev(node head) {
 	if(head==null|head.next==null) {
 		return head;
@@ -132,6 +152,7 @@ node rev(node head) {
 		if(head==null) {
 			return;
 		}
+		
 		node current =head;
 		for(int j=0;j<i;j++) {
 			current =current.next;
@@ -152,12 +173,13 @@ a.add_first_s(2, 97);
 a.add_first_s(6, 88);
 a.add_last_s(7, 48);
 a.add(3, 40, 2);
-a.removeFirst();
-a.removeLast();
+//a.removeFirst();
+//a.removeLast();
 a.display();
 a.getsize();
 //a.get(2);
-a.head=a.rev(a.head);
+//a.head=a.rev(a.head);
+a.delete(0);
 a.display();
 a.getsize();
 	}
